@@ -1,0 +1,108 @@
+<!--
+Abdelrahman Qamhia - aaq225
+CSE264 - Programming Assignment 5
+My Personal Library
+-->
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Library</title>
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Your contents -->
+  <div id="container">
+    <h1>Song Library</h1>
+    <form id="song-library-form">
+      <div id="artist-keyword-div">
+        <label for="artists-select">Artists: </label>
+        <select id="artists-select">
+
+          <option value="" selected>options...</option>
+        </select>
+        <label for="keyword">Keyword: </label>
+        <input id="keyword" type="text">
+      </div>
+
+
+      <div id="display-amount-div-1">
+        <label for="display-amount-select">Amount of Songs to Display Per Page</label>
+      </div>
+      
+      <div id="display-amount-div-2">
+      <select id="display-amount-select">
+        <option value="" selected>options...</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+
+      <div id="search-btn-div">
+        <button id="search-btn">Search</button>
+      </div>
+
+      <div id="next-prev-div">
+        <button id="prev-btn">&lt;&lt;&lt;</button>
+        <button id="next-btn">&gt;&gt;&gt;</button>
+      </div>
+
+      <div id="library-table-div">
+        <table id="library-table">
+          <thead>
+            <tr>
+              <th>Index #</th>
+              <th>Song Title</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <tbody id="song-rows"></tbody>
+        </table>
+      </div>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
