@@ -20,7 +20,8 @@ app.get('/artists', (req,res) => {
 });
 
 app.get('/songs', (req,res) => {
-  const { artist, keyword } = req.query; // expecting a pair of values from the client's select and textbox fields
+  // going to make the default value for the page number = 1 assuming that when the server recieves the initial request from the client, they are at page 1
+  const { artist, keyword, limit, page = 1 } = req.query; // expecting the name of artist client chose from dropdown, the value of keyword client wrote in textbox, the limit chosen from the dropdown, and the page number
   let query = 'SELECT * FROM songlist WHERE 1=1'; // this makes it easier to append on search parameters later, I used this source to learn about; https://www.navicat.com/en/company/aboutus/blog/1812-the-purpose-of-where-1-1-in-sql-statements
   const optionValues = {};
 
@@ -33,12 +34,18 @@ app.get('/songs', (req,res) => {
     query += ' AND title LIKE @keyword';
     optionValues.keyword = `%${keyword}%`;
   }
-
+  // I watched this video to learn about pagination: https://www.youtube.com/watch?v=Ynp6Gdd3XVE
+  // Checking if the limit select is at the default value (do nothing), meaning user wants all songs displayed, otherwise, I will limit according to what client selects
+  if (limit) { 
+    // for example, if page is 5, and limit is 10, offset = 5-1 * 10 = 40, so the offset is 40 and we want to return songs starting from 40 ending at 50 for this page
+    const offset = (page - 1) * parseInt(limit);
+    query += ' LIMIT @limit OFFSET @offset';
+    optionValues.limit = parseInt(limit); // need to make sure limit is integer to pass it as a query parameter in sql
+    optionValues.offset = offset;
+  }
   const statement = db.prepare(query);
   const songs = statement.all(optionValues);
   res.json(songs);
 });
 
 app.listen(3000, () => console.log("Starting up Top 40 Search"));
-
-
