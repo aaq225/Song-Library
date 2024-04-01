@@ -23,7 +23,7 @@ app.get('/songs', (req, res) => {
   // going to make the default value for the page number = 1 assuming that when the server recieves the initial request from the client, they are at page 1
   const { artist, keyword, limit, page = 1 } = req.query; // expecting the name of artist client chose from dropdown, the value of keyword client wrote in textbox, the limit chosen from the dropdown, and the page number
   let query = 'SELECT * FROM songlist WHERE 1=1'; // this makes it easier to append on search parameters later, I used this source to learn about; https://www.navicat.com/en/company/aboutus/blog/1812-the-purpose-of-where-1-1-in-sql-statements
-  
+
   // need a way to count the songs, while this may not be efficient as the db is long but that's all I could think about
   let countQuery = 'SELECT COUNT(*) AS totalSongs FROM songlist WHERE 1=1';
   const optionValues = {};
@@ -67,7 +67,6 @@ app.get('/songs', (req, res) => {
   const songs = statement.all(optionValues);
 
   const songNumber = db.prepare(countQuery).get(countOptionValues).totalSongs;
-  console.log(songNumber);
   res.json({ songs, total: songNumber });
 });
 
