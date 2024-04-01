@@ -33,45 +33,46 @@ My Personal Library
 </head>
 
 <body>
-  <!-- Your contents -->
   <div id="container">
     <h1>Song Library</h1>
     <form id="song-library-form">
-      <div id="artist-keyword-div">
+      <div id="artist-div">
         <label for="artists-select">Artists: </label>
         <select id="artists-select">
 
-          <option value="" selected>options...</option>
+          <option value="" selected>none</option>
         </select>
+      </div>
+
+      <div id="keyword-div">
         <label for="keyword">Keyword: </label>
         <input id="keyword" type="text">
       </div>
 
-
       <div id="display-amount-div-1">
         <label for="display-amount-select">Amount of Songs to Display Per Page</label>
       </div>
-      
+
       <div id="display-amount-div-2">
-      <select id="display-amount-select">
-        <option value="" selected>options...</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-      </select>
-    </div>
+        <select id="display-amount-select">
+          <option value="" selected>All Songs</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+      </div>
 
       <div id="search-btn-div">
-        <button id="search-btn">Search</button>
+        <button id="search-btn" type="button">Search</button>
       </div>
 
       <div id="next-prev-div">
-        <button id="prev-btn">&lt;&lt;&lt;</button>
-        <button id="next-btn">&gt;&gt;&gt;</button>
+        <button id="prev-btn" type="button">&lt;&lt;&lt;</button>
+        <button id="next-btn" type="button">&gt;&gt;&gt;</button>
       </div>
 
-      <div id="library-table-div">
+      <div id="library-table-div" display="none">
         <table id="library-table">
           <thead>
             <tr>
@@ -84,22 +85,13 @@ My Personal Library
         </table>
       </div>
 
-
     </form>
+    <div id="page-info">
 
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
   </div>
+
   <script src="js/vendor/jquery.min.js" crossorigin="anonymous"></script>
   <script src="js/vendor/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
