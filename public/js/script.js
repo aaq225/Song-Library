@@ -1,10 +1,8 @@
 /*
-Abdelrahman Qamhia - aaq225
-CSE264 - Programming Assignment 5
-My Personal Library
+Abdelrahman Qamhia
+Song Library
 */
 
-// this is similar to p4's addToDropDown function.
 function addToDropDown(select, elements) {
     elements.forEach(element => {
         $(select).append(`<option value="${element.artist}">${element.artist}</option>`);

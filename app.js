@@ -1,7 +1,6 @@
 /*
-Abdelrahman Qamhia - aaq225
-CSE264 - Programming Assignment 5
-My Personal Library
+Abdelrahman Qamhia
+Song Library
 */
 const express = require("express");
 const path = require("path");
